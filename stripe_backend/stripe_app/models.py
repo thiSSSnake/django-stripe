@@ -21,3 +21,6 @@ class Item(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.price / 100}"
+
+    def get_price(self):
+        return f"{self.price / 100}"
