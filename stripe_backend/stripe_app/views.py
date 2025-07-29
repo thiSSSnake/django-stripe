@@ -1,4 +1,5 @@
 from django.views import View
+from django.conf import settings
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 from .services.item_service import ItemService
@@ -47,5 +48,18 @@ class ItemView(TemplateView):
         item = ItemService.get_object_by_pk(self.kwargs["pk"])
 
         context = super(ItemView, self).get_context_data(**kwargs)
-        context.update({"item": item})
+        context.update(
+            {
+                "item": item,
+                "STRIPE_PUBLISH_KEY": settings.STRIPE_PUBLISH_KEY,
+            }
+        )
         return context
+
+
+class SuccessView(TemplateView):
+    template_name = "item/success.html"
+
+
+class CancelView(TemplateView):
+    template_name = "item/cancel.html"

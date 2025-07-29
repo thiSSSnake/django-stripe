@@ -1,11 +1,13 @@
 from django.urls import path
-from .views import GetCheckoutSessionForItem, ItemView
+from .views import GetCheckoutSessionForItem, ItemView, SuccessView, CancelView
 
 urlpatterns = [
     path(
-        "get/buy/<int:pk>",
+        "buy/<int:pk>",
         GetCheckoutSessionForItem.as_view(),
-        name="get-checkout-session",
+        name="create-checkout-session",
     ),
-    path("get/item/<int:pk>", ItemView.as_view(), name="get-item-info"),
+    path("item/<int:pk>", ItemView.as_view(), name="get-item-info"),
+    path("cancel/", CancelView.as_view()),
+    path("success/", SuccessView.as_view()),
 ]
