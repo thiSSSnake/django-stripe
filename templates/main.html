@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - My Store{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        {% for item in items %}
+            <div class="card">
+                <div class="card-content">
+                    <h2>{{ item.name }}</h2>
+                    <p>{{ item.description|truncatewords:10 }}</p>
+                    <p class="price">${{ item.get_price }}</p>
+                    <a href="{% url 'get-item-info' item.id %}" class="button">Посмотреть</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

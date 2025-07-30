@@ -1,1 +1,13 @@
-Cancelled !
+{% extends 'base.html' %}
+
+{% block title %}Покупка отменена{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-content" style="text-align: center;">
+            <h2>Purchase cancelled</h2>
+            <p>It looks like you canceled the purchase. If this is a mistake, try again!</p>
+            <a href="{% url 'main-page' %}" class="button">Go back to the main page</a>
+        </div>
+    </div>
+{% endblock %}
