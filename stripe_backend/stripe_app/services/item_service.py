@@ -17,3 +17,11 @@ class ItemService:
         """
         item = Item.objects.get(id=pk)
         return item
+
+    @classmethod
+    def get_all_objects(cls):
+        """
+        Получаем все объекты
+        """
+        items = Item.objects.all()
+        return items

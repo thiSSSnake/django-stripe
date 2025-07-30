@@ -57,6 +57,21 @@ class ItemView(TemplateView):
         return context
 
 
+class ItemsListView(TemplateView):
+    template_name = "main.html"
+
+    def get_context_data(self, **kwargs):
+        items = ItemService.get_all_objects()
+
+        context = super(ItemsListView, self).get_context_data(**kwargs)
+        context.update(
+            {
+                "items": items,
+            }
+        )
+        return context
+
+
 class SuccessView(TemplateView):
     template_name = "item/success.html"
 

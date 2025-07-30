@@ -1,1 +1,13 @@
-Success !
+{% extends 'base.html' %}
+
+{% block title %}Спасибо за покупку!{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-content" style="text-align: center;">
+            <h2>Thank you for your purchase!</h2>
+            <p>Your order has been successfully placed. We appreciate your choice!</p>
+            <a href="{% url 'main-page' %}" class="button">Go back to the main page</a>
+        </div>
+    </div>
+{% endblock %}
